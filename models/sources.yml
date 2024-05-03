@@ -92,3 +92,12 @@ sources:
           - name: SALES
             description: "Total sales amount from this transaction."
             data_type: float
+      - name: RETURNS
+        description: "Records of returned orders."
+        columns:
+          - name: ORDER_ID
+            description: "Identifier of the order that was returned."
+            data_type: varchar
+          - name: RETURNED
+            description: "Status or details about the return."
+            data_type: varchar
