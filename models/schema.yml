@@ -98,9 +98,13 @@ models:
         description: "Sub-category to which the product belongs."
       - name: product_name
         description: "Name of the product."
+
   - name: final_order_level_details
     description: "Details all orders with enriched transaction metrics and return status."
-    tests:
-      - name: order_id_starts_with_aa
-
-
+    columns:
+      - name: order_id
+        description: "The unique identifier for each order, which should not start with 'AA'."
+        tests:
+          - not_null
+          - unique
+          - starts_with_aa
