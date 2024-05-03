@@ -6,11 +6,11 @@ config-version: 2
 
 profile: 'default'
 
-source-paths: ["models"]
+model-paths: ["models"]
 test-paths: ["tests"]
 analysis-paths: ["analyses"]
 macro-paths: ["macros"]
-data-paths: ["data"]
+seed-paths: ["data"]
 snapshot-paths: ["snapshots"]
 
 models:
