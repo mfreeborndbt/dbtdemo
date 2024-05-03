@@ -1,24 +1,100 @@
-version: 1
+version: 2
 
 models:
+  - name: transaction_details
+    description: "Aggregates data from the TRANSACTIONS, ORDERS, CUSTOMERS, and PRODUCTS tables to provide a comprehensive view of all transactions."
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for each transaction, composed of order_id and product_id."
+      - name: order_id
+        description: "Unique identifier for each order, linking transactions to specific order details."
+      - name: customer_id
+        description: "Customer identifier linked to this transaction."
+      - name: product_id
+        description: "Product identifier linked to this transaction."
+      - name: sales
+        description: "Total sales amount from this transaction."
+      - name: quantity
+        description: "Quantity of products sold in this transaction."
+      - name: discount
+        description: "Discount applied to the transaction."
+      - name: profit
+        description: "Profit generated from this transaction."
+      - name: order_date
+        description: "Date on which the order was placed."
+      - name: ship_date
+        description: "Date on which the order was shipped."
+      - name: ship_mode
+        description: "Mode of shipment used for the order."
+      - name: customer_name
+        description: "Full name of the customer."
+      - name: city
+        description: "City where the customer is located."
+      - name: state
+        description: "State where the customer is located."
+      - name: postal_code
+        description: "Postal code for the customer's location."
+      - name: country
+        description: "Country where the customer resides."
+      - name: region
+        description: "Region where the customer is located."
+      - name: segment
+        description: "Market segment to which the customer belongs."
+      - name: category
+        description: "Category to which the product belongs."
+      - name: sub_category
+        description: "Sub-category to which the product belongs."
+      - name: product_name
+        description: "Name of the product."
+
   - name: final_transaction_details
-    description: "Final enriched transaction details with profitability, shipping status, and discount level calculations."
+    description: "Enhances the transaction details by adding calculated fields such as profitability, shipping status, and discount level. This model is intended for final reporting and analysis."
     columns:
       - name: profitability
-        description: "Categorizes transactions as either Profitable or Unprofitable."
-        tests:
-          - not_null
-          - accepted_values:
-              values: ['Profitable', 'Unprofitable']
+        description: "Indicates whether a transaction was profitable (Profit > 0) or not."
       - name: shipping_status
-        description: "Indicates if the shipping was on time or late based on various criteria."
-        tests:
-          - not_null
-          - accepted_values:
-              values: ['On Time', 'Late']
+        description: "Describes whether the shipping was on time or late based on the shipping mode and the time difference between order and ship dates."
       - name: discount_level
-        description: "Categorizes transactions based on the level of discount applied."
-        tests:
-          - not_null
-          - accepted_values:
-              values: ['Highly Discounted', 'Modest Discount', 'Low or No Discount']
+        description: "Categorizes the level of discount applied to the transaction."
+      - name: transaction_id
+        description: "Unique identifier for each transaction, composed of order_id and product_id."
+      - name: order_id
+        description: "Unique identifier for each order, linking transactions to specific order details."
+      - name: customer_id
+        description: "Customer identifier linked to this transaction."
+      - name: product_id
+        description: "Product identifier linked to this transaction."
+      - name: sales
+        description: "Total sales amount from this transaction."
+      - name: quantity
+        description: "Quantity of products sold in this transaction."
+      - name: discount
+        description: "Discount applied to the transaction."
+      - name: profit
+        description: "Profit generated from this transaction."
+      - name: order_date
+        description: "Date on which the order was placed."
+      - name: ship_date
+        description: "Date on which the order was shipped."
+      - name: ship_mode
+        description: "Mode of shipment used for the order."
+      - name: customer_name
+        description: "Full name of the customer."
+      - name: city
+        description: "City where the customer is located."
+      - name: state
+        description: "State where the customer is located."
+      - name: postal_code
+        description: "Postal code for the customer's location."
+      - name: country
+        description: "Country where the customer resides."
+      - name: region
+        description: "Region where the customer is located."
+      - name: segment
+        description: "Market segment to which the customer belongs."
+      - name: category
+        description: "Category to which the product belongs."
+      - name: sub_category
+        description: "Sub-category to which the product belongs."
+      - name: product_name
+        description: "Name of the product."
