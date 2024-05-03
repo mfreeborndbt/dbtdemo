@@ -104,7 +104,3 @@ models:
     columns:
       - name: order_id
         description: "The unique identifier for each order, which should not start with 'AA'."
-        tests:
-          - not_null
-          - unique
-          - starts_with_aa

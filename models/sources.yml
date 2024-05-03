@@ -92,6 +92,7 @@ sources:
           - name: SALES
             description: "Total sales amount from this transaction."
             data_type: float
+            
       - name: RETURNS
         description: "Records of returned orders."
         columns:
