@@ -1,0 +1,24 @@
+version: 1
+
+models:
+  - name: final_transaction_details
+    description: "Final enriched transaction details with profitability, shipping status, and discount level calculations."
+    columns:
+      - name: profitability
+        description: "Categorizes transactions as either Profitable or Unprofitable."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Profitable', 'Unprofitable']
+      - name: shipping_status
+        description: "Indicates if the shipping was on time or late based on various criteria."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['On Time', 'Late']
+      - name: discount_level
+        description: "Categorizes transactions based on the level of discount applied."
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Highly Discounted', 'Modest Discount', 'Low or No Discount']

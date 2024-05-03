@@ -1,0 +1,94 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: RAW
+    schema: SUPERSTORE_ECOMMERCE
+    tables:
+      - name: CUSTOMERS
+        description: "Details about each customer, including geographical and segment information."
+        columns:
+          - name: CITY
+            description: "City where the customer is located."
+            data_type: varchar
+          - name: COUNTRY
+            description: "Country where the customer resides."
+            data_type: varchar
+          - name: CUSTOMER_ID
+            description: "Unique identifier for each customer."
+            data_type: varchar
+          - name: CUSTOMER_NAME
+            description: "Full name of the customer."
+            data_type: varchar
+          - name: POSTAL_CODE
+            description: "Postal code for the customer's location."
+            data_type: number
+          - name: REGION
+            description: "Region where the customer is located."
+            data_type: varchar
+          - name: SEGMENT
+            description: "Market segment to which the customer belongs."
+            data_type: varchar
+          - name: STATE
+            description: "State where the customer is located."
+            data_type: varchar
+
+      - name: ORDERS
+        description: "Records of all orders placed."
+        columns:
+          - name: ORDER_DATE
+            description: "Date on which the order was placed."
+            data_type: date
+          - name: ORDER_ID
+            description: "Unique identifier for each order."
+            data_type: varchar
+          - name: SHIP_DATE
+            description: "Date on which the order was shipped."
+            data_type: date
+          - name: SHIP_MODE
+            description: "Mode of shipment used for the order."
+            data_type: varchar
+
+      - name: PRODUCTS
+        description: "Information about each product available for purchase."
+        columns:
+          - name: CATEGORY
+            description: "Category to which the product belongs."
+            data_type: varchar
+          - name: PRODUCT_ID
+            description: "Unique identifier for each product."
+            data_type: varchar
+          - name: PRODUCT_NAME
+            description: "Name of the product."
+            data_type: varchar
+          - name: SUB_CATEGORY
+            description: "Sub-category to which the product belongs."
+            data_type: varchar
+
+      - name: TRANSACTIONS
+        description: "Transactional records, detailing sales, discounts, profits, and quantities."
+        columns:
+          - name: TRANSACTION_ID
+            description: "Unique identifier for each transaction, composed of order_id and product_id."
+            data_type: varchar
+          - name: CUSTOMER_ID
+            description: "Customer identifier linked to this transaction."
+            data_type: varchar
+          - name: DISCOUNT
+            description: "Discount applied to the transaction."
+            data_type: float
+          - name: ORDER_ID
+            description: "Order identifier linked to this transaction."
+            data_type: varchar
+          - name: PRODUCT_ID
+            description: "Product identifier linked to this transaction."
+            data_type: varchar
+          - name: PROFIT
+            description: "Profit generated from this transaction."
+            data_type: float
+          - name: QUANTITY
+            description: "Quantity of products sold in this transaction."
+            data_type: number
+          - name: SALES
+            description: "Total sales amount from this transaction."
+            data_type: float
